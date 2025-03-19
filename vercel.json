@@ -15,12 +15,5 @@
         "src": "/", 
         "dest": "/api" 
       }
-    ],
-    "redirects": [
-    {
-      "source": "/",
-      "destination": "/api",
-      "permanent": true
-    }
-  ]
+    ]
 }

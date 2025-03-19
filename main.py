@@ -4,10 +4,7 @@ from fastapi import FastAPI
 from fastapi.responses import FileResponse
 import os
 
-app = FastAPI(
-    docs_url="/api/docs",    # Correct Swagger path
-    redoc_url="/api/redoc"   # Correct ReDoc path
-)
+app = FastAPI()
 
 @app.get("/api/")
 def read_api():
@@ -17,6 +14,6 @@ def read_api():
 def read_test():
     return {"We": "got this"}
 
-@app.get("/", include_in_schema=False)
-async def root():
+@app.get("/", response_class=FileResponse)
+def root():
     return FileResponse("index.html")
